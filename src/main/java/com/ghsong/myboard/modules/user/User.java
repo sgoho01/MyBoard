@@ -25,4 +25,8 @@ public class User {
     @Column(nullable = false, length = 20)
     private String name;
 
+
+    public void update(String name) {
+        this.name = name;
+    }
 }
