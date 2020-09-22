@@ -3,3 +3,6 @@ spring:
     active: local
   jwt:
     secret: ghsong
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8

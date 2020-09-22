@@ -93,7 +93,12 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.9.2</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/net.rakugakibox.util/yaml-resource-bundle -->
+        <dependency>
+            <groupId>net.rakugakibox.util</groupId>
+            <artifactId>yaml-resource-bundle</artifactId>
+            <version>1.1</version>
+        </dependency>
     </dependencies>
 
     <build>
