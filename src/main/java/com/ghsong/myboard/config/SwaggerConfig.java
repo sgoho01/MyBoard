@@ -25,17 +25,19 @@ public class SwaggerConfig {
                 .useDefaultResponseMessages(false)      // 기본으로 세팅되는 200,401,403,404 메시지를 표시 하지 않음
                 .ignoredParameterTypes(ServletRequest.class, ServletResponse.class)     // controller 메소드의 파라미터중 제외할것들
                 .select()
-                .apis(basePackage("com.ghsong.myboard.modules"))
+                .apis(basePackage("com.ghsong.myboard"))
                 .paths(any())
                 .build()
-        ;
+                ;
     }
 
     private ApiInfo swaggerInfo() {
         return new ApiInfoBuilder()
-                .title("타이틀")
-                .description("설명")
+                .title("MyBoard")
+                .description("Swagger를 사용한 API Document")
                 .license("라이센스")
+                .licenseUrl("localhost")
+                .version("1.0.0")
                 .build();
     }
 
