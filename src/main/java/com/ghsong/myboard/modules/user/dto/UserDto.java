@@ -19,14 +19,10 @@ public class UserDto {
     @ApiModelProperty(value = "사용자 UID", required = true, example = "ghsong")
     private String uid;
 
+    @ApiModelProperty(value = "비밀번호", required = true, example = "1234")
+    private String password;
+
     @ApiModelProperty(value = "사용자 이름", required = true, example = "송건호")
     private String name;
-
-    public User toEntity() {
-        return User.builder()
-                .uid(this.uid)
-                .name(this.name)
-                .build();
-    }
 
 }

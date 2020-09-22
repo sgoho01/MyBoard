@@ -4,3 +4,6 @@ unKnown:
 userNotFound:
   code: "-1000"
   msg: "존재하지 않는 사용자입니다."
+signinFailed:
+  code: "-1001"
+  msg: "계정이 존재하지 않거나 비밀번호가 정확하지 않습니다."

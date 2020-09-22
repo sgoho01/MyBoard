@@ -4,3 +4,6 @@ unKnown:
 userNotFound:
   code: "-1000"
   msg: "This User not exist."
+signinFailed:
+  code: "-1001"
+  msg: "Your Account does not exist or your password is incorrect."

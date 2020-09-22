@@ -32,26 +32,20 @@ public class UserController {
 
     @ApiOperation(value = "사용자 조회", notes = "특정 사용자 한명을 조회한다.")
     @GetMapping("/{id}")
-    public SingleResult getUser(@ApiParam(value = "사용자 id", required = true) @PathVariable long id) {
+    public SingleResult getUser(@ApiParam(value = "사용자 userSeq", required = true) @PathVariable long id) {
         return responseService.getSingleResult(userRepository.findById(id).orElseThrow(CUserNotFoundException::new));
-    }
-
-    @ApiOperation(value = "사용자 등록", notes = "사용자를 등록한다.")
-    @PostMapping
-    public SingleResult saveUser(@RequestBody UserDto userDto) {
-        return responseService.getSingleResult(userService.saveUser(userDto));
     }
 
     @ApiOperation(value = "사용자 수정", notes = "사용자 정보를 수정한다.")
     @PutMapping("/{id}")
-    public SingleResult updateUser(@ApiParam(value = "사용자 id", required = true) @PathVariable long id,
+    public SingleResult updateUser(@ApiParam(value = "사용자 userSeq", required = true) @PathVariable long id,
                                    @RequestBody UserDto userDto) throws Exception {
         return responseService.getSingleResult(userService.updateUser(id, userDto));
     }
 
     @ApiOperation(value = "사용자 제거", notes = "사용자를 삭제한다.")
     @DeleteMapping("/{id}")
-    public CommonResult deleteUser(@ApiParam(value = "사용자 id", required = true) @PathVariable long id) throws Exception {
+    public CommonResult deleteUser(@ApiParam(value = "사용자 userSeq", required = true) @PathVariable long id) throws Exception {
         userService.deleteUser(id);
         return responseService.getSuccessResult();
     }

@@ -1,5 +1,6 @@
 package com.ghsong.myboard.advice;
 
+import com.ghsong.myboard.advice.exception.CSignInFailedException;
 import com.ghsong.myboard.advice.exception.CUserNotFoundException;
 import com.ghsong.myboard.config.response.CommonResult;
 import com.ghsong.myboard.modules.common.service.ResponseService;
@@ -38,6 +39,12 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected CommonResult userNotFoundException(HttpServletRequest request, CUserNotFoundException e) {
         return responseService.getFailResult(Integer.parseInt(getMessage("userNotFound.code")), getMessage("userNotFound.msg"));
+    }
+
+    @ExceptionHandler(value = CSignInFailedException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    protected CommonResult signInFailedException(HttpServletRequest request, CSignInFailedException e) {
+        return responseService.getFailResult(Integer.parseInt(getMessage("signinFailed.code")), getMessage("signinFailed.msg"));
     }
 
 }
