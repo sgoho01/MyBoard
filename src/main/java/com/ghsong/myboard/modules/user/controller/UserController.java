@@ -1,5 +1,6 @@
 package com.ghsong.myboard.modules.user.controller;
 
+import com.ghsong.myboard.advice.exception.CUserNotFoundException;
 import com.ghsong.myboard.config.response.CommonResult;
 import com.ghsong.myboard.config.response.ListResult;
 import com.ghsong.myboard.config.response.SingleResult;
@@ -32,7 +33,7 @@ public class UserController {
     @ApiOperation(value = "사용자 조회", notes = "특정 사용자 한명을 조회한다.")
     @GetMapping("/{id}")
     public SingleResult getUser(@ApiParam(value = "사용자 id", required = true) @PathVariable long id) {
-        return responseService.getSingleResult(userRepository.findById(id).orElse(null));
+        return responseService.getSingleResult(userRepository.findById(id).orElseThrow(CUserNotFoundException::new));
     }
 
     @ApiOperation(value = "사용자 등록", notes = "사용자를 등록한다.")
