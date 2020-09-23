@@ -8,9 +8,7 @@ import com.ghsong.myboard.modules.common.service.ResponseService;
 import com.ghsong.myboard.modules.user.dto.UserDto;
 import com.ghsong.myboard.modules.user.repository.UserRepository;
 import com.ghsong.myboard.modules.user.service.UserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +23,18 @@ public class UserController {
     private final ResponseService responseService;
 
     @ApiOperation(value = "사용자리스트 조회", notes = "사용자 전체를 조회한다.")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "로그인 성공 후 받은 access-token", required = true, dataType = "String", paramType = "header")
+    })
     @GetMapping
     public ListResult getUserList() {
         return responseService.getListResult(userRepository.findAll());
     }
 
     @ApiOperation(value = "사용자 조회", notes = "특정 사용자 한명을 조회한다.")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "로그인 성공 후 받은 access-token", required = true, dataType = "String", paramType = "header")
+    })
     @GetMapping("/{id}")
     public SingleResult getUser(@ApiParam(value = "사용자 userSeq", required = true) @PathVariable long id) {
         return responseService.getSingleResult(userRepository.findById(id).orElseThrow(CUserNotFoundException::new));
