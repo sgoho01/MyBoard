@@ -10,3 +10,9 @@ signinFailed:
 entryPointException:
   code: "-1002"
   msg: "You don't have permission to access this resource."
+resourceNotExists:
+  code: "-1003"
+  msg: "This resource doesn't exist."
+notOwner:
+  code: "-1004"
+  msg: "You are not owner of this resource."

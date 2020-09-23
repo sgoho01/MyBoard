@@ -1,8 +1,6 @@
 package com.ghsong.myboard.advice;
 
-import com.ghsong.myboard.advice.exception.CAuthenticationEnrtyPointException;
-import com.ghsong.myboard.advice.exception.CSignInFailedException;
-import com.ghsong.myboard.advice.exception.CUserNotFoundException;
+import com.ghsong.myboard.advice.exception.*;
 import com.ghsong.myboard.config.response.CommonResult;
 import com.ghsong.myboard.modules.service.ResponseService;
 import lombok.RequiredArgsConstructor;
@@ -37,7 +35,7 @@ public class ExceptionAdvice {
     }
 
     @ExceptionHandler(value = CUserNotFoundException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     protected CommonResult userNotFoundException(HttpServletRequest request, CUserNotFoundException e) {
         return responseService.getFailResult(Integer.parseInt(getMessage("userNotFound.code")), getMessage("userNotFound.msg"));
     }
@@ -49,9 +47,21 @@ public class ExceptionAdvice {
     }
 
     @ExceptionHandler(value = CAuthenticationEnrtyPointException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     protected CommonResult authenticationEnrtyPointException(HttpServletRequest request, CAuthenticationEnrtyPointException e) {
         return responseService.getFailResult(Integer.parseInt(getMessage("entryPointException.code")), getMessage("entryPointException.msg"));
+    }
+
+    @ExceptionHandler(value = CResourceNotExistsException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    protected CommonResult resourceNotExistsException(HttpServletRequest request, CResourceNotExistsException e) {
+        return responseService.getFailResult(Integer.parseInt(getMessage("resourceNotExists.code")), getMessage("resourceNotExists.msg"));
+    }
+
+    @ExceptionHandler(value = CNotOwnerException.class)
+    @ResponseStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
+    protected CommonResult notOwnerException(HttpServletRequest request, CNotOwnerException e) {
+        return responseService.getFailResult(Integer.parseInt(getMessage("notOwner.code")), getMessage("notOwner.msg"));
     }
 
 }

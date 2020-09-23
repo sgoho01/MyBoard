@@ -1,3 +1,8 @@
+logging:
+  level:
+    root: warn
+    com.ghsong.myboard: debug
+
 server:
   port: 1646
 
@@ -6,9 +11,16 @@ spring:
     active: local
   datasource:
     driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
   jpa:
     hibernate:
       ddl-auto: create-drop
     show-sql: true
     database-platform: org.hibernate.dialect.H2Dialect
     generate-ddl: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console

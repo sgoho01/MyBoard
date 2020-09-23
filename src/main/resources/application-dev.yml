@@ -1,3 +1,8 @@
+logging:
+  level:
+    root: warn
+    com.ghsong.myboard: debug
+
 server:
   port: 1647
 

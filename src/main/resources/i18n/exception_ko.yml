@@ -10,3 +10,9 @@ signinFailed:
 entryPointException:
   code: "-1002"
   msg: "해당 리소스에 접근하기 위한 권한이 없습니다."
+resourceNotExists:
+  code: "-1003"
+  msg: "요청하신 자원이 존재하지 않습니다."
+notOwner:
+  code: "-1004"
+  msg: "해당 자원의 소유자가 아닙니다."
