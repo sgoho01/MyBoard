@@ -7,3 +7,6 @@ userNotFound:
 signinFailed:
   code: "-1001"
   msg: "Your Account does not exist or your password is incorrect."
+entryPointException:
+  code: "-1002"
+  msg: "You don't have permission to access this resource."

@@ -1,9 +1,10 @@
 package com.ghsong.myboard.advice;
 
+import com.ghsong.myboard.advice.exception.CAuthenticationEnrtyPointException;
 import com.ghsong.myboard.advice.exception.CSignInFailedException;
 import com.ghsong.myboard.advice.exception.CUserNotFoundException;
 import com.ghsong.myboard.config.response.CommonResult;
-import com.ghsong.myboard.modules.common.service.ResponseService;
+import com.ghsong.myboard.modules.service.ResponseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -45,6 +46,12 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected CommonResult signInFailedException(HttpServletRequest request, CSignInFailedException e) {
         return responseService.getFailResult(Integer.parseInt(getMessage("signinFailed.code")), getMessage("signinFailed.msg"));
+    }
+
+    @ExceptionHandler(value = CAuthenticationEnrtyPointException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    protected CommonResult authenticationEnrtyPointException(HttpServletRequest request, CAuthenticationEnrtyPointException e) {
+        return responseService.getFailResult(Integer.parseInt(getMessage("entryPointException.code")), getMessage("entryPointException.msg"));
     }
 
 }
