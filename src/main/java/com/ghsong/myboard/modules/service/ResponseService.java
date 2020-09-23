@@ -1,4 +1,4 @@
-package com.ghsong.myboard.modules.common.service;
+package com.ghsong.myboard.modules.service;
 
 import com.ghsong.myboard.config.response.CommonResponse;
 import com.ghsong.myboard.config.response.CommonResult;

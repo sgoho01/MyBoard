@@ -1,13 +1,13 @@
-package com.ghsong.myboard.modules.user.controller;
+package com.ghsong.myboard.modules.controller;
 
 import com.ghsong.myboard.advice.exception.CUserNotFoundException;
 import com.ghsong.myboard.config.response.CommonResult;
 import com.ghsong.myboard.config.response.ListResult;
 import com.ghsong.myboard.config.response.SingleResult;
-import com.ghsong.myboard.modules.common.service.ResponseService;
-import com.ghsong.myboard.modules.user.dto.UserDto;
-import com.ghsong.myboard.modules.user.repository.UserRepository;
-import com.ghsong.myboard.modules.user.service.UserService;
+import com.ghsong.myboard.modules.entiry.dto.UserDto;
+import com.ghsong.myboard.modules.repository.UserRepository;
+import com.ghsong.myboard.modules.service.ResponseService;
+import com.ghsong.myboard.modules.service.UserService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

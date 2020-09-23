@@ -1,6 +1,6 @@
-package com.ghsong.myboard.modules.user.repository;
+package com.ghsong.myboard.modules.repository;
 
-import com.ghsong.myboard.modules.user.User;
+import com.ghsong.myboard.modules.entiry.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 

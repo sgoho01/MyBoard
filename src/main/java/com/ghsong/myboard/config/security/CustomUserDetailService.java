@@ -1,7 +1,7 @@
 package com.ghsong.myboard.config.security;
 
 import com.ghsong.myboard.advice.exception.CSignInFailedException;
-import com.ghsong.myboard.modules.user.repository.UserRepository;
+import com.ghsong.myboard.modules.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

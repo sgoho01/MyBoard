@@ -1,9 +1,7 @@
-package com.ghsong.myboard.modules.user.dto;
+package com.ghsong.myboard.modules.entiry.dto;
 
-import com.ghsong.myboard.modules.user.User;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,13 +1,13 @@
-package com.ghsong.myboard.modules.user.controller;
+package com.ghsong.myboard.modules.controller;
 
 import com.ghsong.myboard.advice.exception.CSignInFailedException;
 import com.ghsong.myboard.config.response.SingleResult;
 import com.ghsong.myboard.config.security.JwtTokenProvider;
-import com.ghsong.myboard.modules.common.service.ResponseService;
-import com.ghsong.myboard.modules.user.User;
-import com.ghsong.myboard.modules.user.dto.UserDto;
-import com.ghsong.myboard.modules.user.repository.UserRepository;
-import com.ghsong.myboard.modules.user.service.UserService;
+import com.ghsong.myboard.modules.service.ResponseService;
+import com.ghsong.myboard.modules.entiry.User;
+import com.ghsong.myboard.modules.entiry.dto.UserDto;
+import com.ghsong.myboard.modules.repository.UserRepository;
+import com.ghsong.myboard.modules.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

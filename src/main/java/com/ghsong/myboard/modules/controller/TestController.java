@@ -1,4 +1,4 @@
-package com.ghsong.myboard.modules.test;
+package com.ghsong.myboard.modules.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

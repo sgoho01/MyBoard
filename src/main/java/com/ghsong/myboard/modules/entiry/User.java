@@ -1,4 +1,4 @@
-package com.ghsong.myboard.modules.user;
+package com.ghsong.myboard.modules.entiry;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,8 @@
-package com.ghsong.myboard.modules.user.service;
+package com.ghsong.myboard.modules.service;
 
-import com.ghsong.myboard.modules.user.User;
-import com.ghsong.myboard.modules.user.dto.UserDto;
-import com.ghsong.myboard.modules.user.repository.UserRepository;
+import com.ghsong.myboard.modules.entiry.User;
+import com.ghsong.myboard.modules.entiry.dto.UserDto;
+import com.ghsong.myboard.modules.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
