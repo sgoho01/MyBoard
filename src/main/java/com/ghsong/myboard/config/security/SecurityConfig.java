@@ -45,7 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         web.ignoring()
-                .mvcMatchers("/h2-console/**")
+                .mvcMatchers("/h2-console/**",
+                        "/v2/api-docs", "/swagger-ui.html/**", "/swagger/**", "/swagger-resources/**")
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 }
