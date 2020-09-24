@@ -1,0 +1,1 @@
+insert into board (name) values ('free');
