@@ -41,8 +41,9 @@ public class User extends CommonDateEntity implements UserDetails {
     @Builder.Default
     private List<String> roles = new ArrayList<>();
 
-    public void update(String name) {
+    public void update(String name, String password) {
         this.name = name;
+        this.password = password;
     }
 
 

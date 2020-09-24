@@ -41,7 +41,7 @@ public class UserService {
      */
     public User updateUser(long id, UserDto userDto) throws Exception {
         User user = userRepository.findById(id).orElseThrow(() -> new Exception("dd"));
-        user.update(userDto.getName());
+        user.update(userDto.getName(), passwordEncoder.encode(userDto.getPassword()));
         return userRepository.save(user);
     }
 
