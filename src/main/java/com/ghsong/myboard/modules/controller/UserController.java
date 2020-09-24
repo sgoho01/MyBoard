@@ -41,6 +41,9 @@ public class UserController {
     }
 
     @ApiOperation(value = "사용자 수정", notes = "사용자 정보를 수정한다.")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "로그인 성공 후 받은 access-token", required = true, dataType = "String", paramType = "header")
+    })
     @PutMapping("/{id}")
     public SingleResult updateUser(@ApiParam(value = "사용자 userSeq", required = true) @PathVariable long id,
                                    @RequestBody UserDto userDto) throws Exception {
@@ -48,6 +51,9 @@ public class UserController {
     }
 
     @ApiOperation(value = "사용자 제거", notes = "사용자를 삭제한다.")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "로그인 성공 후 받은 access-token", required = true, dataType = "String", paramType = "header")
+    })
     @DeleteMapping("/{id}")
     public CommonResult deleteUser(@ApiParam(value = "사용자 userSeq", required = true) @PathVariable long id) throws Exception {
         userService.deleteUser(id);
