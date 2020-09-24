@@ -3,6 +3,7 @@ package com.ghsong.myboard.modules.service;
 import com.ghsong.myboard.advice.exception.CNotOwnerException;
 import com.ghsong.myboard.advice.exception.CResourceNotExistsException;
 import com.ghsong.myboard.advice.exception.CUserNotFoundException;
+import com.ghsong.myboard.aspect.ForbiddenWordCheck;
 import com.ghsong.myboard.modules.entiry.Board;
 import com.ghsong.myboard.modules.entiry.Post;
 import com.ghsong.myboard.modules.entiry.User;
@@ -36,7 +37,7 @@ public class BoardService {
     }
 
     /**
-     * 게시판 이름으로 게시글 리스트 조외
+     * 게시판 이름으로 게시글 리스트 조회
      *
      * @param boardName
      * @return
@@ -67,6 +68,7 @@ public class BoardService {
      * @param uid
      * @return
      */
+    @ForbiddenWordCheck
     public Post savePost(PostDto postDto, String boardName, String uid) {
         Board board = getBoard(boardName);
         Post post = Post.builder()
@@ -87,6 +89,7 @@ public class BoardService {
      * @param uid
      * @return
      */
+    @ForbiddenWordCheck
     public Post updatePost(PostDto postDto, long postSeq, String uid) {
         Post post = getPost(postSeq);
         User postUser = post.getUser();

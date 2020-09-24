@@ -16,3 +16,6 @@ resourceNotExists:
 notOwner:
   code: "-1004"
   msg: "해당 자원의 소유자가 아닙니다."
+forbiddenWord:
+  code: "-1005"
+  msg: "입력한 내용에 금칙어 ({0})가 포함되어 있습니다."

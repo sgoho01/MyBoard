@@ -64,4 +64,10 @@ public class ExceptionAdvice {
         return responseService.getFailResult(Integer.parseInt(getMessage("notOwner.code")), getMessage("notOwner.msg"));
     }
 
+    @ExceptionHandler(value = CForbiddenWorkException.class)
+    @ResponseStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
+    protected CommonResult forbiddenWorkException(HttpServletRequest request, CForbiddenWorkException e) {
+        return responseService.getFailResult(Integer.parseInt(getMessage("forbiddenWord.code")), getMessage("forbiddenWord.msg", new Object[]{e.getMessage()}));
+    }
+
 }
